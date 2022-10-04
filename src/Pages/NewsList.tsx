@@ -20,10 +20,10 @@ type news = {
     const res = await fetch(
       `https://hn.algolia.com/api/v1/search_by_date?tags=story&page=${page}`
     );
-    const data1 = (await res.json()) as news;
-    setData(data1.hits);
+    const result = (await res.json()) as news;
+    setData(result.hits);
 
-    if (data1.hits.length > 0) {
+    if (result.hits.length > 0) {
       setnewsList([...newsList, ...data]);
     } else {
       setHasMore(false);
