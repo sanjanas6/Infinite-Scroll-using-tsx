@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import  "./NewsList.css";
 
 type news = {
-  hits: [title: string, url: string, created_at: string, author: string];
+  hits: [title: string, url: string, created_at: string, author: string, _tags: string];
 };
 
   const NewsList = () => {
@@ -85,16 +85,19 @@ type news = {
                 }}
               >
                 <h2>
-                  <u>Title</u> : {item.title}
+                <b>Title</b> : {item.title}
                 </h2>
                 <h3>
-                  <u>Author</u> :{item.author}
+                  <b>Author</b> :{item.author}
                 </h3>
                 <h3>
-                  <u>Created At</u>: {item.created_at}
+                  <b>Created At</b>: {item.created_at}
                 </h3>
                 <h4>
-                  <u>URL</u>: {item.url}
+                  <b>URL</b>: {item.url}
+                </h4>
+                <h4>
+                  <b>TAGS</b>: {item._tags}
                 </h4>
               </div>
             );
