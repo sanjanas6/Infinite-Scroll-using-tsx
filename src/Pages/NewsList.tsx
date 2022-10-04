@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useNavigate } from "react-router";
-import  "./index.css";
+import  "./NewsList.css";
 
 type news = {
   hits: [title: string, url: string, created_at: string, author: string];
@@ -48,12 +48,12 @@ type news = {
 
   return (
     <>
-      <div className="stories" >
+      <div className="Stories" >
         <input
           type='text'
-          placeholder='Search Here'
-          onChange={(event) => {
-            setsearchNews(event.target.value);
+          placeholder='Search By Title/Author'
+          onChange={(e) => {
+            setsearchNews(e.target.value);
           }}
           className='searchbar'
         />
