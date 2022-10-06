@@ -54,7 +54,7 @@ const NewsList = () => {
 
   return (
     <>
-      <div className='Stories' data-testid='divmain'>
+      <div className='Pagination-btn' data-testid='divmain'>
         <input
           type='text'
           placeholder='Search By Title/Author'
