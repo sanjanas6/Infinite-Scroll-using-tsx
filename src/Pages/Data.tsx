@@ -3,21 +3,21 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
-const Data =()=> {
+const Data = () => {
 let location = useLocation();
-let data= location.state;
+let item= location.state;
 let navigate= useNavigate();
 
 useEffect(() => {
-    if (data == null) {
+    if (item == null) {
       navigate("/");
     }
   }, []);
 
 return(
-    <div>
+    <div data-testid='Data'>
         <h2>
-            {JSON.stringify(data)}
+            {JSON.stringify(item)}
         </h2>
     </div >
     

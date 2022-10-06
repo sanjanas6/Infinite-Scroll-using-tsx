@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useNavigate } from "react-router";
-import  "./NewsList.css";
+import "./NewsList.css";
 
 type news = {
-  hits: [title: string, url: string, created_at: string, author: string, _tags: string];
+  hits: [
+    title: string,
+    url: string,
+    created_at: string,
+    author: string,
+    _tags: string
+  ];
 };
 
-  const NewsList = () => {
+const NewsList = () => {
   const [page, setPage] = useState(1);
   // const pageCount = useRef(0);
   const [data, setData] = useState<any>([]);
@@ -30,7 +36,7 @@ type news = {
     }
     // console.log(page, data);
     // pageCount.current++
-  }
+  };
 
   useEffect(() => {
     fetchData();
@@ -48,7 +54,7 @@ type news = {
 
   return (
     <>
-      <div className="Stories" >
+      <div className='Stories' data-testid='divmain'>
         <input
           type='text'
           placeholder='Search By Title/Author'
@@ -78,6 +84,7 @@ type news = {
           .map((item: any, index: any) => {
             return (
               <div
+                data-testid='detail'
                 key={index}
                 className='container'
                 onClick={() => {
@@ -85,7 +92,7 @@ type news = {
                 }}
               >
                 <h2>
-                <b>Title</b> : {item.title}
+                  <b>Title</b> : {item.title}
                 </h2>
                 <h3>
                   <b>Author</b> :{item.author}
@@ -103,8 +110,9 @@ type news = {
             );
           })}
       </InfiniteScroll>
-      {!hasMore && searchNews.length === 0 && <p>You have gone through all the Data</p>}
-     
+      {!hasMore && searchNews.length === 0 && (
+        <p>You have gone through all the Data</p>
+      )}
     </>
   );
 };
